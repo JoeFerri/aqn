@@ -1,5 +1,5 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub issues](https://img.shields.io/github/issues/JoeFerri/labels)](https://github.com/JoeFerri/aqn/issues)
+[![GitHub issues](https://img.shields.io/github/issues/JoeFerri/aqn)](https://github.com/JoeFerri/aqn/issues)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](code_of_conduct-eng.md)
 
 # AQN - Asked Questions Notes
