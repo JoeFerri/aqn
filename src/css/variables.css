@@ -1,0 +1,78 @@
+/**
+ * AQN - Asked Questions Notes
+ * License: MIT
+ * Source: https://github.com/JoeFerri/aqn
+ * Copyright (c) 2025 Giuseppe Ferri <jfinfoit@gmail.com>
+ */
+
+
+
+ 
+:root {
+  /* Colore */
+  --trasparent: rgba(0, 0, 0, 0);
+
+  --background-color-out: #f4f4f9;
+  --background-color-in: #f8f9fa;
+
+  --header-box-border-color: #ddd;
+
+  --header-h1-color: #333;
+
+  --button-background-color: #18052e;
+  --button-hover-background-color: #1f073b;
+  --button-color: #fff;
+
+  --question-border-color: #ddd;
+  --question-title-background-color: #340b63;
+  --question-title-hover-background-color: #4d1092;
+  --question-title-color: #fff;
+
+  --question-body-background-color: #f9f9f9;
+
+  --scroll-top-btn-background-color: #18052e;
+  --scroll-top-btn-color: #fff;
+
+  --hierarchy-menu-color: #555;
+  --hierarchy-menu-a-color: #007BFF;
+
+  --formula-color: #333;
+
+  --block-image-border-color: #ddd;
+  --block-image-box-shadow: rgba(0, 0, 0, 0.1);
+
+  --table-tr-border-color: #ddd;
+  --table-tr-hover-border-color: #D6EEEE;
+
+  --hr-border-color: #c7c7c7;
+
+  --keyword-color: #a70000;
+
+  /* Fonts */
+  --font-family: Arial, sans-serif;
+
+  --formula-font-family: 'Times New Roman', Times, serif;
+  --formula-font-style: italic;
+
+  --font-size: 16px;
+
+  --header-h1-font-size: 1.6rem;
+  
+  --textarea-font-size: 1.2rem;
+
+  --button-font-size: 1rem;
+
+  --scroll-top-btn-font-size: 1rem;
+
+  --hierarchy-menu-font-size: 0.8rem;
+
+  --question-body-font-size: 1rem;
+
+  /* Menu fisso */
+  --menu-height: 6.3rem;
+
+  /* Dimensioni */
+  --block-image-max-height: 30rem;
+
+  --button-width: 110px;
+}

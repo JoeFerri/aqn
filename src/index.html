@@ -1,0 +1,101 @@
+<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name='keywords' content='AQN, Asked Questions Notes, asked, questions, notes'>
+    <meta name="description" content="AQN - Asked Questions Notes">
+    <meta name='subject' content='AQN - Asked Questions Notes'>
+    <meta name='copyright' content='Giuseppe Ferri'>
+    <meta name='language' content='it'>
+    <meta name='robots' content='index,follow'>
+    <meta name='abstract' content='AQN - Asked Questions Notes'>
+    <meta name='summary' content='AQN - Asked Questions Notes'>
+    <meta name='author' content='Giuseppe Ferri'>
+    <meta name='pagename' content='AQN - Asked Questions Notes'>
+
+    <title>AQN - Asked Questions Notes</title>
+    
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">-->
+    <link rel="stylesheet" href="vendor/katex/katex.min.css">
+
+    <link rel="stylesheet" href="css/cytoscape.css"> <!-- caricare prima di cytoscape.js -->
+
+    <!-- highlight -->
+    <!-- Styles examples: https://highlightjs.org/examples -->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">-->
+    <link rel="stylesheet" href="vendor/highlight/styles/github-dark.min.css">
+
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <!--<script defer src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>-->
+    <script defer src="vendor/katex/katex.min.js"></script>
+    
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.30.4/cytoscape.min.js"></script>-->
+    <script src="vendor/cytoscape/cytoscape.min.js"></script>
+
+    <!--<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>-->
+    <script src="vendor/marked/marked.min.js"></script>
+
+    <!-- highlight -->
+    <!--<script src="https://cdn.jsdelivr.net/npm/marked-highlight@2.2.1/lib/index.umd.min.js"></script>-->
+    <script src="vendor/marked/marked-highlight/lib/index.umd.min.js"></script>
+    <!-- CDN: https://cdnjs.com/libraries/highlight.js-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>-->
+    <script src="vendor/highlight/highlight.min.js"></script>
+
+    <div id="bodyBox">
+      <div id="header-box">
+        <div id="header">
+          <h1>AQN - Asked Questions Notes</h1>
+          <form id="markdownForm">
+            <textarea id="markdownInput" placeholder="Enter your markdown here..." rows="20"></textarea>
+            <button type="button" id="generateButton" data-generate="false">Generate Questions</button>
+          </form>
+          <button id="toggleAllButton" disabled class="button-fade">Toggle All</button>
+          <div><button id="optionsButton">Options</button></div>
+        </div>
+      </div>
+
+      <div id="optionsBox">
+        <!-- wheelSensitivity -->
+        <!-- node|archs colors -->
+      </div>
+
+      <div id="questionsBox" data-allVisible="false">
+        <div id="questionsContainer"></div>
+      </div>
+
+      <div id="graphBoxContainer" class="fade">
+        <div id="hierarchyBox"></div>
+        <div id="graphBox"></div>
+      </div>
+
+      <div id="menuBtns" class="button-fade">
+        <button id="hierarchyBtn">Hierarchy</button>
+        <button id="graphBtn">Graph</button>
+        <button id="QuestionsBtn">Questions</button>
+        <button id="scrollTopBtn">Back Top</button>
+      </div>
+    </div>
+
+    <script src="js/AQNUtils.js"></script>
+    <script src="js/AQNParseState.js"></script>
+    <script src="js/AQNRendering.js"></script>
+    <script src="js/AQNParsing.js"></script>
+    <script src="js/AQNData.js"></script>
+    <script src="js/AQNBlock.js"></script>
+    <script src="js/AQNNode.js"></script>
+    <script src="js/AQNEdge.js"></script>
+    <script src="js/AQNHierarchy.js"></script>
+    <script src="js/AQNFootnote.js"></script>
+    <script src="js/AQNRegex.js"></script>
+    <script src="js/AQNGraphs.js"></script>
+    <script src="js/AQNParser.js"></script>
+    <script src="js/AQNSetting.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

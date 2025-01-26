@@ -1,0 +1,7 @@
+note
+/vendor
+testing
+temp
+elab
+src/images/*
+!src/images/.gitkeep

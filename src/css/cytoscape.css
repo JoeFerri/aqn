@@ -1,0 +1,26 @@
+/**
+ * AQN - Asked Questions Notes
+ * License: MIT
+ * Source: https://github.com/JoeFerri/aqn
+ * Copyright (c) 2025 Giuseppe Ferri <jfinfoit@gmail.com>
+ */
+
+
+
+
+#graphBoxContainer {
+  display: none;
+  position: fixed;
+  top: 120px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+}
+
+#hierarchyBox, #graphBox {
+  width: 90%;
+  height: 90%;
+  margin: 0 auto;
+}
+
+

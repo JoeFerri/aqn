@@ -1,0 +1,404 @@
+/**
+ * AQN - Asked Questions Notes
+ * License: MIT
+ * Source: https://github.com/JoeFerri/aqn
+ * Copyright (c) 2025 Giuseppe Ferri <jfinfoit@gmail.com>
+ */
+
+
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-size: var(--font-size);
+  box-sizing: border-box;
+}
+
+/* Reset di base */
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color-out);
+  margin: 0;
+  padding: 0 0 300px 0;
+}
+
+#bodyBox {
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+}
+
+/* Header fisso */
+#header-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--background-color-in);
+  border-bottom: 1px solid var(--header-box-border-color);
+  padding: 20px 0;
+  z-index: 1000;
+}
+
+/* Header fisso */
+#header {
+  width: 98%;
+  margin: 0 auto;
+
+  /* Flexbox layout */
+  display: flex;
+  flex-direction: column; /* al click su genera la disposizione passa a riga */
+  flex-wrap: nowrap;
+  align-items: unset; /* al click su genera l'allineamento passa a center */
+  gap: 10px;
+}
+
+/* Stile per il titolo */
+#header h1 {
+  margin: 0;
+  font-size: var(--header-h1-font-size);
+  color: var(--header-h1-color);
+  text-align: center;
+}
+
+/* Stile per il form */
+#markdownForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+
+/* Nascondi il form */
+#markdownForm.hidden {
+  display: none;
+}
+
+/* Textarea */
+textarea {
+  width: 98%;
+  padding: 10px;
+  font-size: var(--textarea-font-size);
+  border: 1px solid var(--header-box-border-color);
+  border-radius: 4px;
+  resize: none;
+  overflow-y: scroll;
+}
+
+/* Bottone "Generate Questions" */
+#generateButton,
+#toggleAllButton,
+#optionsButton {
+  background-color: var(--button-background-color);
+  color: var(--button-color);
+  width: 98%; /* var(--button-width) */
+  margin: 0 14px 0 auto;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: var(--button-font-size);
+}
+
+/* Hover bottoni */
+#generateButton:hover,
+#toggleAllButton:hover,
+#optionsButton:hover {
+  background-color: var(--button-hover-background-color);
+}
+
+#optionsButton {
+  margin: 0px 10px;
+}
+
+
+/* Contenitore delle domande */
+#questionsContainer {
+  width: 100%;
+  margin-top: 0; /* Rimuovi il margin-top */
+  padding: 20px;
+  flex-grow: 1;
+  width: 100%; /* Assicurati che occupi l'intero spazio disponibile */
+}
+
+/* Singola domanda */
+.question {
+  margin-bottom: 30px;
+  border: 1px solid var(--question-border-color);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.question.active-target {
+  /* outline: 2px solid #4d1092;
+  outline-offset: 5px; */
+  outline: none; /* Rimuoviamo l'outline standard */
+  box-shadow: 0 0 10px rgba(77, 16, 146, 0.5), /* Ombra principale sfumata */
+                0 0 20px rgba(77, 16, 146, 0.2), /* Ombra secondaria più estesa */
+                  inset 0 0 5px rgba(255, 255, 255, 0.3); /* Bagliore interno */
+  scroll-margin-top: 20px;      /* Margine per una posizione più chiara */
+}
+
+/* Titolo della domanda */
+.question-title {
+  background-color: var(--question-title-background-color);
+  color: var(--question-title-color);
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.question-title:hover {
+  background-color: var(--question-title-hover-background-color);
+}
+
+.question-title > p {
+  display: inline;
+}
+
+/* Corpo della domanda */
+.question-body {
+  display: none;
+  padding: 10px;
+  background-color: var(--question-body-background-color);
+  margin-top: 1rem;
+  font-size: var(--question-body-font-size);
+  line-height: 1.5;
+  
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Paragrafi nel corpo */
+.question-body p {
+  margin: 0 0 10px;
+}
+
+/* Transizioni */
+#markdownInput, #questionsBox, #questionsContainer {
+  transition: opacity 1s ease, height 1s ease;
+}
+
+#questionsBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /**/
+  padding-top: var(--menu-height); /* Altezza del menu fisso */
+  box-sizing: border-box;
+}
+
+#questionsContainer {
+  margin-bottom: 60px;
+}
+
+.fade {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.button-fade {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+#scrollTopBtn, #hierarchyBtn, #graphBtn, #QuestionsBtn {
+  background-color: var(--scroll-top-btn-background-color);
+  color: var(--scroll-top-btn-color);
+  width: 110px;
+  padding: 10px 16px;
+  margin: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: var(--scroll-top-btn-font-size);
+  border-radius: 4px;
+  border: none;
+}
+
+#QuestionsBtn, #hierarchyBox, #graphBox {
+  display: none;
+}
+
+#menuBtns {
+  background-color: var(--background-color-out);
+  width: 100%;
+  height: 80px;
+  margin-right: 17px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  border-top: 1px solid var(--header-box-border-color);
+}
+
+/* ----------------------------------------------- */
+
+/* Gerarchia menu */
+.hierarchy-menu {
+  font-size: var(--hierarchy-menu-font-size);
+  color: var(--hierarchy-menu-color);
+  margin-bottom: 0.5rem;
+  margin-left: 0.45rem;
+}
+
+.hierarchy-menu a {
+  text-decoration: none;
+  color: var(--hierarchy-menu-a-color);
+  margin: 0 0.2rem;
+}
+
+.hierarchy-menu a:hover {
+  text-decoration: underline;
+}
+
+/* Formula */
+.formula {
+  font-family: var(--formula-font-family);
+  font-style: var(--formula-font-style);
+  margin: 1rem 0;
+  text-align: center;
+  color: var(--formula-color);
+}
+
+/* Immagine */
+.block-image {
+  display: block;
+  margin: 1rem auto;
+  width: auto;
+  height: auto;
+  max-height: var(--block-image-max-height);
+  border: 1px solid var(--block-image-border-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px var(--block-image-box-shadow);
+}
+
+
+/* Tabella */
+
+table {
+  margin: 2rem auto;
+  border-collapse: collapse;
+}
+
+th, tr {
+  border-bottom: 1px solid var(--table-tr-border-color);
+}
+
+tr:hover {
+  background-color: var(--table-tr-hover-background-color);
+}
+
+th, td {
+  padding: 0.6rem;
+}
+
+/* ------------------------------ */
+
+hr {
+  border: 1px solid var(--hr-border-color);
+  width: 98%;
+  margin-top: -2rem;
+}
+
+
+/* ---------- Icons ------------- */
+
+.hierarchy-icon, .graph-icon {
+  width: 24px;
+  height: auto;
+}
+
+.icon-link {
+  display: inline-flex;
+}
+
+.icon-box {
+  display: inline-flex;
+  gap: 10px;
+}
+
+.icon-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ------------- Media Queries ------------- */
+
+@media screen and (min-width: 1000px) {
+  #bodyBox {
+    max-width: 1000px;
+  }
+
+  #questionsContainer {
+    width: 80%;
+    margin-bottom: 160px;
+  }
+
+  #scrollTopBtn, #hierarchyBtn, #graphBtn {
+    display: block;
+  }
+  
+  #menuBtns {
+    background-color: var(--trasparent);
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    bottom: 10px;
+    left: auto;
+    right: 0px;
+    border-top: 0;
+  }
+}
+
+
+/* -------------- */
+
+#note > div.question-body {
+  display: flex !important;
+}
+
+p.footnote {
+  
+}
+
+sup.footnote {
+  
+}
+
+a:has(sup.footnote) {
+  text-decoration: none;
+}
+
+p > sup.footnote {
+  padding-right: 5px;
+}
+
+span.footnote-text {
+  
+}
+
+span.keyword, span.keyword a {
+  font-weight: bold !important;
+  color: var(--keyword-color) !important;
+}
+
+/* -------------------------- */
+
+pre > code {
+  width: 90% !important;
+  margin: 10px auto !important;
+  /* border: 1px solid var(--block-image-border-color) !important; */
+  border-radius: 10px !important;
+  box-shadow: 0 8px 12px var(--block-image-box-shadow) !important;
+}
