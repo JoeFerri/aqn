@@ -1,0 +1,30 @@
+/**
+ * AQM - Asked Questions Markdown
+ * License: MIT
+ * Source: https://github.com/JoeFerri/aqn
+ * Copyright (c) 2025 Giuseppe Ferri <jfinfoit@gmail.com>
+ */
+
+
+
+
+T             ::= #x9
+S             ::= #x20
+ST            ::= S | T
+NL            ::= ST* #xA
+WS            ::= ST+
+TEXT          ::= #x20-#x7E
+AQM           ::= (R_LABEL NL R_HIERARCHY NL+ (R_SYMBOL NL+ | R_SYMBOL NL+ R_IMAGE NL+ | R_IMAGE NL+)? R_CONTENT NL+ R_END)+
+R_LABEL       ::= [a-zA-Z][a-zA-Z0-9 ]*
+R_HIERARCHY   ::= WS* '>' WS* HTOKENS*
+HTOKENS       ::= HTOKEN WS* ('>' WS* HTOKEN)*
+HTOKEN        ::= '[' WS* '#' R_LABEL WS* ']'
+R_SYMBOL      ::= (WS* '>')? WS* '$' WS* LATEX_FORMULA WS* '$'
+R_IMAGE       ::= (WS* '>')? WS* '![[' WS* URL WS* ']]' | '![' WS* TEXT WS* '](' WS* URL WS* ')'
+URL           ::= ( './' | '../' | '/')?  (identifier '/')*  identifier '.' ('jpg' | 'jpeg' | 'png' | 'gif' | 'webp')
+R_CONTENT     ::= MARKDOWN_TEXT
+R_END         ::= '---' NL+
+LATEX_FORMULA ::= /* see latex syntax */
+MARKDOWN_TEXT ::= /* see markdown syntax */
+
+
