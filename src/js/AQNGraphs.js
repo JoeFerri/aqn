@@ -148,7 +148,7 @@ class AQNGraphs {
   }
 
   static defaults = {
-    minZoom: 0.3,
+    minZoom: 0.01,
     maxZoom: 3,
     wheelSensitivity: 0.1,
 
@@ -159,7 +159,7 @@ class AQNGraphs {
         name: 'breadthfirst',
         directed: true,
         padding: 10,
-        spacingFactor: 1.5,
+        spacingFactor: 2.5,
         animate: true,
         animationDuration: 500 // ms
       },
@@ -190,11 +190,16 @@ class AQNGraphs {
         {
           selector: 'node',
           style: {
+            'width': 100,               // Aumenta la larghezza del nodo (default: 30)
+            'height': 100,              // Aumenta l'altezza del nodo (default: 30
             'label': 'data(label)',
             'text-valign': 'center',
+            'text-halign': 'center',
             'color': '#000',
             'background-color': '#CDEBB7',
-            'font-size': '12px'
+            'font-size': '12px',
+            'text-wrap': 'wrap',
+            'text-max-width': '100px'
           }
         },
         {
@@ -213,10 +218,16 @@ class AQNGraphs {
         {
           selector: 'node',
           style: {
+            'width': 100,               // Aumenta la larghezza del nodo (default: 30)
+            'height': 100,              // Aumenta l'altezza del nodo (default: 30
             'label': 'data(label)',
             'text-valign': 'center',
+            'text-halign': 'center',
             'color': '#000',
-            'background-color': '#94BCEB'
+            'background-color': '#94BCEB',
+            'font-size': '12px',
+            'text-wrap': 'wrap',
+            'text-max-width': '100px'
           }
         },
         {
@@ -246,12 +257,13 @@ class AQNGraphs {
    * @param {Array} hierarchy - Un array che rappresenta la gerarchia [radice, ..., foglia].
    */
   static styleHierarchy(cy, hierarchy = [], config = {}) {
-    const { rootShape = 'round-pentagon',
+    const { 
+            rootShape = 'round-pentagon',
             leafShape = 'round-diamond',
             intermediateShape = 'ellipse',
-            rootSize = 30,
-            leafSize = 35,
-            intermediateSize = 30,
+            rootSize = 100,
+            leafSize = 120,
+            intermediateSize = 90,
             baseColorRed = 255,
             baseColorGreen = 204,
             baseColorBlue = 204,
@@ -308,8 +320,8 @@ class AQNGraphs {
     static styleGraph(cy, objLinks, config = {}) { // TODO: parola "link" sostituita da "edge"?
       const { sourceShape = 'round-pentagon',
               leafShape = 'round-diamond',
-              sourceSize = 30,
-              leafSize = 35,
+              sourceSize = 90,
+              leafSize = 110,
               baseColorRed = 255,
               baseColorGreen = 204,
               baseColorBlue = 204,
