@@ -302,6 +302,9 @@ class AQNParser {
                                     .replace(AQNRegex.regexLink1, (match, p1) => {
                                       return ` <a href="#${AQNParsing.labelToId(p1)}">${p1}</a> `;
                                     })
+                                    .replace(AQNRegex.regexLink2, (match, p1, p2) => {
+                                      return ` <a href="#${AQNParsing.labelToId(p2)}">${p2}</a> `;
+                                    })
                                       .replace(AQNRegex.regexFootnote, (match, p1, p2) => {
                                         return ` <p id="footnote${p1}" class="footnote"><sup class="footnote">${p1}</sup> <span class="footnote-text">${p2}</span></p>`;
                                       })
