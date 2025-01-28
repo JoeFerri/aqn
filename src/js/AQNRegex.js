@@ -13,11 +13,7 @@ class AQNRegex {
     static regexLabelData = /\s*(#+\s*(.+?)\s*\n+\s*(.+?)\s*\n+\s*---\s*)\s*/gms;
 
     // trova le keyword nel contenuto
-    static regexKeywords = /^\(\(\s*(.+?)\s*\)\)[^\)]|[^\(]\(\(\s*(.+?)\s*\)\)[^\)]|[^\(]\(\(\s*(.+?)\s*\)\)$/g;
-
-    // trova le keyword nel contenuto
-    //                               (1)          2    |   3           (4)          5    |   6            (7)
-    static regexKeywords2 = /^\(\(\s*(.+?)\s*\)\)([^\)])|([^\(])\(\(\s*(.+?)\s*\)\)([^\)])|([^\(])\(\(\s*(.+?)\s*\)\)$/g;
+    static regexKeywords = /\(\(\s*(.+?)\s*\)\)/g;
 
     // separa i nodi in una gerarchia
     static regexHierarchySeparator = />\s*/;

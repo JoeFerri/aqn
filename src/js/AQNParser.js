@@ -190,7 +190,7 @@ class AQNParser {
 
                 let keyword = null;
                 while ((matchKeyword = AQNRegex.regexKeywords.exec(line)) !== null) {
-                  keyword = matchKeyword[1] || matchKeyword[2] || matchKeyword[3];
+                  keyword = matchKeyword[1];
                   if (keyword) {
                     let labelKeyword = keyword;
                     let matchKeyLink = AQNRegex.regexLink1.exec(keyword);
@@ -312,16 +312,8 @@ class AQNParser {
                               .replace(AQNRegex.regexAnchorHTML, (match, p1) => {
                                 return ` <a href="#${AQNParsing.labelToId(p1)}">`;
                               })
-                                .replace(AQNRegex.regexKeywords2, (match, p1, p2, p3, p4, p5, p6, p7) => {
-                                  let c = "", l = "", r = "";
-                                  if (p1) {
-                                    c = p1; r = p2;
-                                  } else if (p4) {
-                                    c = p4; l = p3; r = p5;
-                                  } else if (p7) {
-                                    c = p7; l = p6;
-                                  }
-                                  return `${l} <span class="keyword">${c}</span> ${r}`;
+                                .replace(AQNRegex.regexKeywords, (match, p1) => {
+                                  return ` <span class="keyword">${p1}</span> `;
                                 })
 
 
