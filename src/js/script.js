@@ -28,6 +28,7 @@
     const graphBox = document.getElementById('graphBox');
 
     const scrollTopBtn = document.getElementById('scrollTopBtn');
+    const scrollBottomBtn = document.getElementById('scrollBottomBtn');
     const QuestionsBtn = document.getElementById('QuestionsBtn');
 
     const hierarchyBtn = document.getElementById('hierarchyBtn');
@@ -364,6 +365,13 @@
       AQNUtils.returnToTop();
     });
 
+    /**
+     * Torna all'inizio della pagina al click del pulsante "Torna su".
+     */
+    scrollBottomBtn.addEventListener('click', () => {
+      AQNUtils.returnToBottom();
+    });
+
 
     /**
      * Gestisce il click su un link che punta ad un ancoraggio (ad es. <a href="#foo">) e
@@ -409,6 +417,7 @@
       hierarchyClickFunction = (event) => {
         if (generateButton.dataset.generate === 'true') {
           scrollTopBtn.style.display = 'none';
+          scrollBottomBtn.style.display = 'none';
           QuestionsBtn.style.display = 'block';
 
           graphBoxContainer.style.display = 'block';
@@ -446,6 +455,7 @@
       graphClickFunction = (event) => {
         if (generateButton.dataset.generate === 'true') {
           scrollTopBtn.style.display = 'none';
+          scrollBottomBtn.style.display = 'none';
           QuestionsBtn.style.display = 'block';
 
           graphBoxContainer.style.display = 'block';
@@ -476,6 +486,7 @@
     QuestionsBtn.addEventListener('click', (event) => {
       if (generateButton.dataset.generate === 'true') {
         scrollTopBtn.style.display = 'block';
+        scrollBottomBtn.style.display = 'block';
         QuestionsBtn.style.display = 'none';
 
         graphBoxContainer.style.display = 'none';

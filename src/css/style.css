@@ -208,7 +208,7 @@ textarea {
   pointer-events: none;
 }
 
-#scrollTopBtn, #hierarchyBtn, #graphBtn, #QuestionsBtn {
+#scrollTopBtn, #scrollBottomBtn, #hierarchyBtn, #graphBtn, #QuestionsBtn {
   background-color: var(--scroll-top-btn-background-color);
   color: var(--scroll-top-btn-color);
   width: 110px;
@@ -345,7 +345,7 @@ hr {
     margin-bottom: 160px;
   }
 
-  #scrollTopBtn, #hierarchyBtn, #graphBtn {
+  #scrollTopBtn, #scrollBottomBtn, #hierarchyBtn, #graphBtn {
     display: block;
   }
   
