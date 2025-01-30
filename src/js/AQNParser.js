@@ -300,23 +300,23 @@ class AQNParser {
       block.content.HTML =  marked.parse(
                               block.content.plain
                                     .replace(AQNRegex.regexLink1, (match, p1) => {
-                                      return ` <a href="#${AQNParsing.labelToId(p1)}">${p1}</a> `;
+                                      return `<a href="#${AQNParsing.labelToId(p1)}">${p1}</a>`;
                                     })
                                     .replace(AQNRegex.regexLink2, (match, p1, p2) => {
-                                      return ` <a href="#${AQNParsing.labelToId(p2)}">${p2}</a> `;
+                                      return `<a href="#${AQNParsing.labelToId(p2)}">${p1}</a>`;
                                     })
                                       .replace(AQNRegex.regexFootnote, (match, p1, p2) => {
-                                        return ` <p id="footnote${p1}" class="footnote"><sup class="footnote">${p1}</sup> <span class="footnote-text">${p2}</span></p>`;
+                                        return `<p id="footnote${p1}" class="footnote"><sup class="footnote">${p1}</sup> <span class="footnote-text">${p2}</span></p>`;
                                       })
                                         .replace(AQNRegex.regexFootnoteAnchor, (match, p1) => {
-                                          return `<a href="#footnote${p1}"><sup class="footnote">${p1}</sup></a> `;
+                                          return `<a href="#footnote${p1}"><sup class="footnote">${p1}</sup></a>`;
                                         })
                             )
                               .replace(AQNRegex.regexAnchorHTML, (match, p1) => {
-                                return ` <a href="#${AQNParsing.labelToId(p1)}">`;
+                                return `<a href="#${AQNParsing.labelToId(p1)}">`;
                               })
                                 .replace(AQNRegex.regexKeywords, (match, p1) => {
-                                  return ` <span class="keyword">${p1}</span> `;
+                                  return `<span class="keyword">${p1}</span>`;
                                 });
       block.content.HTML = AQNRendering.renderMathInText(block.content.HTML);
 
