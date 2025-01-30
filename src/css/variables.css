@@ -48,6 +48,9 @@
 
   --keyword-color: #a70000;
 
+  --active-target-box-shadow1: rgba(195, 14, 14, 0.5);
+  --active-target-box-shadow2: rgba(195, 14, 14, 0.2);
+
   /* Fonts */
   --font-family: Arial, sans-serif;
 

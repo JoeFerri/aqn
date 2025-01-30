@@ -132,11 +132,9 @@ textarea {
 }
 
 .question.active-target {
-  /* outline: 2px solid #4d1092;
-  outline-offset: 5px; */
   outline: none; /* Rimuoviamo l'outline standard */
-  box-shadow: 0 0 10px rgba(77, 16, 146, 0.5), /* Ombra principale sfumata */
-                0 0 20px rgba(77, 16, 146, 0.2), /* Ombra secondaria più estesa */
+  box-shadow: 0 0 10px var(--active-target-box-shadow1), /* Ombra principale sfumata */
+                0 0 20px var(--active-target-box-shadow2), /* Ombra secondaria più estesa */
                   inset 0 0 5px rgba(255, 255, 255, 0.3); /* Bagliore interno */
   scroll-margin-top: 20px;      /* Margine per una posizione più chiara */
 }
