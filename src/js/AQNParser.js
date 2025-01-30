@@ -317,7 +317,8 @@ class AQNParser {
                               })
                                 .replace(AQNRegex.regexKeywords, (match, p1) => {
                                   return ` <span class="keyword">${p1}</span> `;
-                                })
+                                });
+      block.content.HTML = AQNRendering.renderMathInText(block.content.HTML);
 
 
       data.blocks.push(block);
